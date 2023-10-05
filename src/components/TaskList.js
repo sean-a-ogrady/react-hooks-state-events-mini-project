@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Task from "./Task";
 
-function TaskList({ tasks }) {
+function TaskList({ tasks, filter }) {
 
   const [currentTasks, setCurrentTasks] = useState([...tasks]);
 
@@ -9,9 +9,11 @@ function TaskList({ tasks }) {
     setCurrentTasks([...currentTasks].filter(task => {return task.text != taskText}));
   }
 
+  const filteredTasks = currentTasks.filter(task => {return filter === "All" || task.category === filter})
+
   return (
     <div className="tasks">
-      {currentTasks.map(task => {
+      {filteredTasks.map(task => {
         return <Task
           key={task.text}
           text={task.text}
