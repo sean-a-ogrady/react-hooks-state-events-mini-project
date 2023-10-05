@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import Task from "./Task";
 
-function TaskList({ tasks, filter }) {
-
-  const [currentTasks, setCurrentTasks] = useState([...tasks]);
+function TaskList({ tasks, filter, setTasks }) {
 
   function deleteTask(taskText) {
-    setCurrentTasks([...currentTasks].filter(task => {return task.text != taskText}));
+    setTasks([...tasks].filter(task => {return task.text != taskText}));
   }
 
-  const filteredTasks = currentTasks.filter(task => {return filter === "All" || task.category === filter})
+  const filteredTasks = tasks.filter(task => {return filter === "All" || task.category === filter})
 
   return (
     <div className="tasks">
