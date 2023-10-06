@@ -6,7 +6,7 @@ function TaskList({ tasks, filter, setTasks }) {
     setTasks([...tasks].filter(task => {return task.text != taskText}));
   }
 
-  const filteredTasks = tasks.filter(task => {return filter === "All" || task.category === filter})
+  const filteredTasks = tasks.filter(task => filter === "All" || task.category === filter);
 
   return (
     <div className="tasks">
