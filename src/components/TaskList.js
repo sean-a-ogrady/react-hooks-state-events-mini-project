@@ -3,7 +3,7 @@ import Task from "./Task";
 function TaskList({ tasks, filter, setTasks }) {
 
   function deleteTask(taskText) {
-    setTasks([...tasks].filter(task => {return task.text != taskText}));
+    setTasks(tasks.filter(task => task.text != taskText));
   }
 
   const filteredTasks = tasks.filter(task => filter === "All" || task.category === filter);

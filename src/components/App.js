@@ -10,7 +10,7 @@ console.log({ CATEGORIES, TASKS });
 function App() {
   const [filter, setFilter] = useState("All");
   const [newTask, setNewTask] = useState({ text: "", category: "Code" });
-  const [tasks, setTasks] = useState([...TASKS]);
+  const [tasks, setTasks] = useState(TASKS);
 
   function selectFilter(event) {
     setFilter(event.target.textContent);
